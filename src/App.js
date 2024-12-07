@@ -5,7 +5,6 @@ import './styles/Sections.css';
 import './styles/Intervals.css'
 import Timer from './components/timer.jsx';
 import Interval from './components/intervals.jsx';
-import Sections from './components/sections.jsx';
 
 function App() {
     return (
@@ -14,7 +13,6 @@ function App() {
                 <h1>Pomodoro Timer</h1>
                 <Timer />
                 <Interval/>
-                <Sections/>
             </header>
         </div>
     );
