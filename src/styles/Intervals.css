@@ -1,0 +1,17 @@
+#intervals{
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#work{
+    color: green;
+    margin-right: 2em;
+}
+
+#break{
+    color: lightskyblue;
+    margin-left: 2em;
+}

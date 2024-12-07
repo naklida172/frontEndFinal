@@ -35,7 +35,7 @@ const Timer = () => {
     <div>
       <div id="timer">{formatTime(time)}</div>
       <button onClick={() => setPauseState(!isOnPause)}>
-        {isOnPause ? "Start" : "Pause"}
+        {isOnPause ? "Start" : "Pause"} 
       </button>
       <button onClick={resetTimer}>Reset</button>
     </div>
