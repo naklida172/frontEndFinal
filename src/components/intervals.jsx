@@ -22,7 +22,7 @@ const Interval = ({ addSection, sectionsList, completedList }) => {
           <h2>Work</h2>
           <input
             type="text"
-            placeholder="Duration"
+            placeholder="Duration in minutes"
             value={workTime}
             onChange={(event) => setWorkTime(event.target.value)}
           />
@@ -39,7 +39,7 @@ const Interval = ({ addSection, sectionsList, completedList }) => {
           <h2>Break</h2>
           <input
             type="text"
-            placeholder="Duration"
+            placeholder="Duration in minutes"
             value={breakTime}
             onChange={(event) => setBreakTime(event.target.value)}
           />
