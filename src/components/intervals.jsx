@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Interval = ({ addSection, sectionsList }) => {
+const Interval = ({ addSection, sectionsList, completedList }) => {
   const [workTime, setWorkTime] = useState('');
   const [breakTime, setBreakTime] = useState('');
 
@@ -56,8 +56,15 @@ const Interval = ({ addSection, sectionsList }) => {
       <div id="sections">
         <ul id="sectionsList">
           {sectionsList.map((member, index) => (
-            <li key={index} style={{ background: member.isWorkSession ? 'green' : 'blue', color: member.completed ? 'red':'black' }}>
-              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, ${member.completed ? 'Done' : 'Not done'}`}
+            <li key={index} style={{ background: member.isWorkSession ? 'green' : 'blue', color: 'black' }}>
+              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, Not done`}
+            </li>
+          ))}
+        </ul>
+        <ul id="sectionsList">
+          {completedList.map((member, index) => (
+            <li key={index} style={{ background: 'grey', color: 'black' }}>
+              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, Done`}
             </li>
           ))}
         </ul>
