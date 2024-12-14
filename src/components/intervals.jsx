@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
-const Interval = () => {
+const Interval = ({ addSection, sectionsList }) => {
   const [workTime, setWorkTime] = useState('');
   const [breakTime, setBreakTime] = useState('');
-  const [sectionsList, setSectionsList] = useState([]);
 
   const addInterval = (timeInput, isWorkSession) => {
     const trimmedTime = timeInput.trim();
@@ -14,10 +13,6 @@ const Interval = () => {
         "This type of duration is not available, please write a positive integer"
       );
     }
-  };
-
-  const addSection = (section) => {
-    setSectionsList([...sectionsList, section]);
   };
 
   return (
@@ -34,7 +29,7 @@ const Interval = () => {
           <button
             onClick={() => {
               addInterval(workTime, true);
-              setWorkTime(''); // Reset input field
+              setWorkTime('');
             }}
           >
             Add
@@ -51,7 +46,7 @@ const Interval = () => {
           <button
             onClick={() => {
               addInterval(breakTime, false);
-              setBreakTime(''); // Reset input field
+              setBreakTime('');
             }}
           >
             Add
@@ -61,8 +56,8 @@ const Interval = () => {
       <div id="sections">
         <ul id="sectionsList">
           {sectionsList.map((member, index) => (
-            <li key={index} style={{ background: member.isWorkSession ? 'green' : 'blue', color: 'black' }}>
-              {`Duration: ${member.time}, Work Session: ${member.isWorkSession ? 'Yes' : 'No'}, Completed: ${member.completed}`}
+            <li key={index} style={{ background: member.isWorkSession ? 'green' : 'blue', color: member.completed ? 'red':'black' }}>
+              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, ${member.completed ? 'Done' : 'Not done'}`}
             </li>
           ))}
         </ul>
