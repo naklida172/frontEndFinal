@@ -8,17 +8,18 @@ const Sections = () => {
   const [manualMinutes, setManualMinutes] = useState(0);
 
   useEffect(() => {
-    if (sectionsList.length > 0 && !sectionsList[0].completed) {
+    if (sectionsList.length > 0) {
       setManualMinutes(sectionsList[0].time);
     } else {
       setManualMinutes(0);
     }
   }, [sectionsList]);
 
-  const handleSectionComplete = useCallback(() => {
+  const handleSectionComplete = useCallback((skipState=false) => {
     setSectionsList((prevSectionsList) => {
       const updatedList = [...prevSectionsList];
       if(updatedList.length > 0){
+        updatedList[0].skipped=skipState;
         setCompletedList((prevCompletedList) => [...prevCompletedList,updatedList[0]]);
         updatedList.shift();
       }

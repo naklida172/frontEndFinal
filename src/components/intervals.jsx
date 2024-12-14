@@ -7,7 +7,7 @@ const Interval = ({ addSection, sectionsList, completedList }) => {
   const addInterval = (timeInput, isWorkSession) => {
     const trimmedTime = timeInput.trim();
     if (!isNaN(trimmedTime) && trimmedTime !== "" && Number(trimmedTime) !== 0) {
-      addSection({ time: trimmedTime, isWorkSession, completed: false });
+      addSection({ time: trimmedTime, isWorkSession, skipped: false });
     } else {
       alert(
         "This type of duration is not available, please write a positive integer"
@@ -64,7 +64,7 @@ const Interval = ({ addSection, sectionsList, completedList }) => {
         <ul id="sectionsList">
           {completedList.map((member, index) => (
             <li key={index} style={{ background: 'grey', color: 'black' }}>
-              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, Done`}
+              {`Duration: ${member.time}, ${member.isWorkSession ? 'Work' : 'Break'}, ${member.skipped ? 'Skipped':'Done'}`}
             </li>
           ))}
         </ul>

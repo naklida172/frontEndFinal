@@ -37,6 +37,11 @@ const Timer = ({ manualMinutes, onSectionComplete }) => {
     setPauseState(true);
   };
 
+  const skipSection = () => {
+    setPauseState(true);
+    onSectionComplete(true);
+  };
+
   return (
     <div>
       <div id="timer">{formatTime(time)}</div>
@@ -44,6 +49,7 @@ const Timer = ({ manualMinutes, onSectionComplete }) => {
         {isOnPause ? "Start" : "Pause"}
       </button>
       <button onClick={resetTimer}>Reset</button>
+      <button onClick={skipSection}>Skip</button>
     </div>
   );
 };
